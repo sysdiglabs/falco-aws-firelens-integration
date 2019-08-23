@@ -1,21 +1,31 @@
-[
-  {
-    "name": "fluentbit",
-    "image": "falcosecurity/fluentbit-ecs-falco",
-    "essential": true,
-    "cpu": 10,
-    "memory": 512,
-    "environment": [
-      {
-        "name": "FLB_LOG_LEVEL",
-        "value": "info"
+{
+  "containerDefinitions": [
+    {
+      "name": "fluentbit",
+      "image": "falcosecurity/fluentbit-ecs-falco",
+      "essential": true,
+      "cpu": 10,
+      "memory": 512,
+      "environment": [
+        {
+          "name": "FLB_LOG_LEVEL",
+          "value": "info"
+        }
+      ],
+      "mountPoints": [
+        {
+          "containerPath": "/var/run",
+          "sourceVolume": "socket"
+        }
+      ]
+    }
+  ],
+  "volumes": [
+    {
+      "name": "socket",
+      "host": {
+        "sourcePath": "/var/run"
       }
-    ],
-    "mountPoints": [
-      {
-        "containerPath": "/var/run",
-        "sourceVolume": "socket"
-      }
-    ]
-  }
-]
+    }
+  ]
+}
