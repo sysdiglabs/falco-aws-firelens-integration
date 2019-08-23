@@ -8,3 +8,10 @@ There are one directory per step or piece of infrastructure to automate:
 * `eks`: Deploy Falco and FluentBit on EKS
 * `ecs`: Deploy Falco and FluentBit on ECS
 * `kinesis`: Create Kinesis streams to send alerts to ElasticSearch
+
+## Getting started
+
+You will need the following requisites:
+
+* `kubectl`
+* `aws-cli` tools

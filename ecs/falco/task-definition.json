@@ -1,0 +1,53 @@
+[
+  {
+    "name": "falco",
+    "image": "falcosecurity/falco:0.17.0",
+    "essential": true,
+    "cpu": 10,
+    "memory": 512,
+    "privileged": true,
+    "command": [
+      "/usr/bin/falco",
+      "-pc",
+      "-o", "json_output=true"
+    ],
+    "logConfiguration": {
+      "logDriver": "fluentd",
+      "options": {
+        "fluentd-address": "unix:///var/run/fluent.sock",
+        "tag": "falco"
+      }
+    },
+    "mountPoints": [
+      {
+        "containerPath": "/host/var/run/docker.sock",
+        "sourceVolume": "docker-socket"
+      },
+      {
+        "containerPath": "/host/dev",
+        "sourceVolume": "dev-fs"
+      },
+      {
+        "containerPath": "/host/proc",
+        "sourceVolume": "proc-fs",
+        "readOnly": true
+      },
+      {
+        "containerPath": "/host/boot",
+        "sourceVolume": "boot-fs",
+        "readOnly": true
+      },
+      {
+        "containerPath": "/host/lib/modules",
+        "sourceVolume": "lib-modules",
+        "readOnly": true
+      },
+      {
+        "containerPath": "/host/usr",
+        "sourceVolume": "usr-fs",
+        "readOnly": true
+      }
+    ]
+  }
+]
+
