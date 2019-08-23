@@ -23,7 +23,7 @@ data:
         region eu-west-1
         log_group_name falco
         log_stream_name alerts
-        auto_create_group truenginx
+        auto_create_group true
   parsers.conf: |
     [PARSER]
         Name        falco
