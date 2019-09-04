@@ -1,4 +1,5 @@
 {
+  "family": "Falco",
   "containerDefinitions": [
     {
       "name": "falco",
@@ -83,7 +84,7 @@
       }
     },
     {
-      "name": "user-fs",
+      "name": "usr-fs",
       "host": {
         "sourcePath": "/usr"
       }

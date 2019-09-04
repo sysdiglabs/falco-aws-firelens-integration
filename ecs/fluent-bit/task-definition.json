@@ -1,4 +1,5 @@
 {
+  "family": "FluentBit",
   "containerDefinitions": [
     {
       "name": "fluentbit",
