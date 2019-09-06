@@ -2,6 +2,15 @@
   "family": "Falco",
   "containerDefinitions": [
     {
+      "essential": true,
+      "image": "amazon/aws-for-fluent-bit:latest",
+      "name": "log_router",
+      "firelensConfiguration": {
+        "type": "fluentbit"
+      },
+      "memory": 128
+    },
+    {
       "name": "falco",
       "image": "falcosecurity/falco:0.17.0",
       "essential": true,
@@ -14,10 +23,13 @@
         "-o", "json_output=true"
       ],
       "logConfiguration": {
-        "logDriver": "fluentd",
+        "logDriver":"awsfirelens",
         "options": {
-          "fluentd-address": "unix:///var/run/fluent.sock",
-          "tag": "falco"
+          "Name": "cloudwatch",
+          "region": "us-west-1",
+          "log_group_name": "falco",
+          "log_stream_name": "alerts",
+          "auto_create_group": "true"
         }
       },
       "mountPoints": [
