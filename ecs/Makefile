@@ -1,4 +1,4 @@
-CLUSTER_ARN="arn:aws:ecs:eu-west-1:845151661675:cluster/nestor-sysdig-ecs-demo"
+CLUSTER_ARN="arn:aws:ecs:eu-west-1:845151661675:cluster/nestor-sysdig-ecs-firelens-demo"
 
 deploy: deploy-fluent-bit deploy-falco
 

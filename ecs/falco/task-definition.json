@@ -6,7 +6,10 @@
       "image": "amazon/aws-for-fluent-bit:latest",
       "name": "log_router",
       "firelensConfiguration": {
-        "type": "fluentbit"
+        "type": "fluentbit",
+        "options": {
+          "enable-ecs-log-metadata": "true"
+        }
       },
       "memory": 128
     },
@@ -26,7 +29,7 @@
         "logDriver":"awsfirelens",
         "options": {
           "Name": "cloudwatch",
-          "region": "us-west-1",
+          "region": "eu-west-1",
           "log_group_name": "falco",
           "log_stream_name": "alerts",
           "auto_create_group": "true"
