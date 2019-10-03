@@ -15,7 +15,7 @@
     },
     {
       "name": "falco",
-      "image": "falcosecurity/falco:0.17.0",
+      "image": "falcosecurity/falco:0.17.1",
       "essential": true,
       "cpu": 10,
       "memory": 512,
