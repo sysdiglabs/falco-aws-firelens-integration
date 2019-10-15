@@ -1,4 +1,4 @@
-NODE_ROLE_NAME="nestor-sysdig-eks-demo-noe"
+NODE_ROLE_NAME="nestor-sysdig-eks-demo-node"
 
 deploy: deploy-fluent-bit deploy-falco
 
